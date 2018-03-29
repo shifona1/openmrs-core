@@ -262,6 +262,10 @@ public class ProgramWorkflowServiceImpl extends BaseOpenmrsService implements Pr
 			}
 		}
 		
+		for (PatientState state : patientProgram.getRecentStates()) {
+			state.setEndDate(patientProgram.getDateCompleted());
+		}
+
 		return dao.savePatientProgram(patientProgram);
 	}
 	
